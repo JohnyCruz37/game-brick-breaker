@@ -4,13 +4,12 @@ from src.settings import SCREEN_WIDTH
 
 @dataclass
 class Paddle:
-    def __init__(self, position_x, position_y, width, height, color):
-        self.position_x = position_x
-        self.position_y = position_y
-        self.width = width
-        self.height = height
-        self.color = color
-        self.rect = pygame.Rect(self.position_x, self.position_y, self.width, self.height)
+    position_x: float
+    position_y: float
+    width: float
+    height: float
+    color: tuple
+    speed: float = 5.0
 
 
     def move_left(self):
@@ -24,8 +23,7 @@ class Paddle:
             self.position_x = SCREEN_WIDTH - self.width
     
     def draw(self, screen):
-        pygame.draw.rect(screen, self.color, self.rect)
+        pygame.draw.rect(screen, self.color, (self.position_x, self.position_y, self.width, self.height))
     
     def reset(self):
-        self.position_x = SCREEN_WIDTH // 2 - self.width // 2
-        self.rect.x = self.position_x
+        self.position_x = (SCREEN_WIDTH - self.width) // 2

@@ -14,9 +14,8 @@ class Game:
         self.clock = pygame.time.Clock()
         self.running = True
         self.state = "menu"
-        self.base_dir = base_dir #encontrar arquivos
 
-        self.ball = Ball(position_x=SCREEN_WIDTH // 2, position_y=SCREEN_HEIGHT // 2, radius=10, color=(255, 0, 0), base_dir=self.base_dir)
+        self.ball = Ball(position_x=SCREEN_WIDTH // 2, position_y=SCREEN_HEIGHT // 2, radius=10, color=(255, 0, 0))
         self.paddle = Paddle(position_x=SCREEN_WIDTH // 2 - 50, position_y=SCREEN_HEIGHT - 30, width=100, height=10, color=(0, 255, 0))
         self.bricks = self.create_bricks()
         self.score = Score()
